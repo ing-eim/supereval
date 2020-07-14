@@ -9,16 +9,16 @@
 
 <%
     
-    
+    /*
     request.getSession();
     HttpSession misession= (HttpSession) request.getSession();
     if(misession.getAttribute("c_v_session").toString().length() == 0)
-    {
+    {*/
 %>
 <script>
-    window.location = 'lg.jsp';
+    //window.location = 'lg.jsp';
 </script>
-<%  }else{ %>
+<% /* }else{ */ %>
 
 <!DOCTYPE html>
 <html>
@@ -72,30 +72,29 @@
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-comision" role="tabpanel" aria-labelledby="Escribir Reporte del día">
                 <div class="container">
+                    <br>
                     <h1> Cargar Oficios de Comisión </h1>
                     <form id="frmfilecomision" type="post" enctype="multipart/form-data"> 
                         <div class="form-row">
-                            <div class="form-group">
-                                <br/>
+                            <div class="form-group">                                
                                 <label for="txtc_i_placa"> Placa </label>
-                                <input type="text" id="txtc_i_placa" name = "txtc_i_placa" value = ""/>   
+                                <input type="text"  class="form-control" id="txtc_i_placa" name = "txtc_i_placa" value = ""/>   
                             </div>                            
                         </div>
                         <div class="form-row">
-                            <div class="form-group">
-                                <br/>
+                            <div class="form-group">                        
                                 <label for="txtnumoficio"> No. de Oficio </label>
-                                <input type="text" id="txtnumoficio" name = "txtnumoficio" value = ""/>   
+                                <input type="text" class="form-control" id="txtnumoficio" name = "txtnumoficio" value = ""/>   
                             </div>                            
                         </div>
                         <div class="form-row">
                             <div class="form-group">                            
-                            <input type="file" id="in_file" name="in_file" multiple accept=".pdf"/>
+                                <input type="file" class="form-control" id="in_file" name="in_file" multiple accept=".pdf"/>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">                            
-                            <input type="submit" class="btn btn-info" value="Subir Archivos">
+                            <input type="submit" class="btn btn-info form-control" value="Subir Archivos">
                             </div>
                         </div>
                     </form>                    
@@ -104,16 +103,16 @@
             <!--              PANEL CORRECTIVOS       -->
             <div class="tab-pane fade" id="nav-correctivos" role="tabpanel" aria-labelledby="Cargar Correctivos">
                 <div class="container">
-                    <h1> Cargar Correctivos Disciplinarios </h1>
+                    <br>
+                    <h1> Cargar Boleta de Arresto </h1>
                     <form  id="frmfilecorrectivo" type="post" enctype="multipart/form-data">
                         <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <br/>
+                            <div class="form-group col-md-4">                                
                                 <label for="txtc_i_placabol"> Placa </label>
-                                <input type="text" id="txtc_i_placabol" name = "txtc_i_placabol" value = ""/>   
+                                <input type="text" class="form-control" id="txtc_i_placabol" name = "txtc_i_placabol" value = ""/>   
                             </div>                            
                         </div>
-                        <div class="row col-10">
+                        <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="txtfechaboleta">Fecha</label>
                                 <input type="date" id="txtfechaboleta" name="txtfechaboleta" class="form-control">                            
@@ -121,12 +120,12 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">                            
-                            <input type="file" id="in_filebol" name="in_filebol" multiple accept=".pdf"/>
+                                <input type="file" class="form-control" id="in_filebol" name="in_filebol" multiple accept=".pdf"/>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">                            
-                            <input type="submit" class="btn btn-info" value="Subir Archivos">
+                            <input type="submit" class="form-control btn btn-info" value="Subir Archivos">
                             </div>
                         </div>
                     </form>
@@ -135,54 +134,62 @@
             </div>
             
             <!--              PANEL QUEJAS       -->
-            <div class="tab-pane fade" id="nav-quejas" role="tabpanel" aria-labelledby="Mostrar Historico de Reportes">
+            <div class="tab-pane fade" id="nav-quejas" role="tabpanel" aria-labelledby="Quejas y Denuncias">
                 <div class="container">
-                    <h1> Quejas </h1>
-                    <div class="row col-10">
-                        <div class="form-group col-md-4">
-                            <label for="txtfec_in_report">Fecha Inicial</label>
-                            <input type="date" id="txtfec_in_report" class="form-control">                            
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="txtfec_fin_report">Fecha Final</label>
-                            <input type="date" id="txtfec_fin_report" class="form-control">                            
+                    <br>
+                    <h1> Quejas y Denuncias </h1>                    
+                    <div class="form-row">
+                        <div class="form-group col-md-4">                            
+                            <label for="txtc_i_placabol"> Placa </label>
+                            <input type="text" class="form-control" id="txtc_i_placaquejas" name = "txtc_i_placaquejas" value = ""/>   
+                        </div>                            
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-10">                            
+                            <label for="txtqueja"> Queja </label>
+                            <textarea class="form-control" id="txtqueja" placeholder="Escriba aqui breve resumen de la queja o denuncia"></textarea>
                         </div>
                     </div>
                     <div class="row col-10">
                         <div class="form-group">                                                       
-                            <input type = "button" id="btnGeneraInf" class="form-control btn btn-success" value="Mostrar" onclick =''>
+                            <input type = "button" id="btnGuardaQueja" class="form-control btn btn-success" value="Guardar" onclick ='UploadQueja();'>
                         </div>                        
                     </div>
                 </div>
-                <div class="container" id="reportepersonal">                    
-                </div>                
             </div>            
             <!-- ****************************  -->
             <!-- PANEL GENRA REPORTE       -->
-            <div class="tab-pane fade" id="nav-estimulos" role="tabpanel" aria-labelledby="Mostrar Historico de Reportes">
+            <div class="tab-pane fade" id="nav-estimulos" role="tabpanel" aria-labelledby="Estímulos y Condecoraciones">
                 <div class="container">
-                    <h1> Estimulos </h1>
-                    <div class="row col-10">
-                        <div class="form-group col-md-4">
-                            <label for="txtfec_in_report">Fecha Inicial</label>
-                            <input type="date" id="txtfec_in_report" class="form-control">                            
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="txtfec_fin_report">Fecha Final</label>
-                            <input type="date" id="txtfec_fin_report" class="form-control">                            
+                    <br>
+                    <h1> Estímulos y Condecoraciones </h1>                    
+                    <div class="form-row">
+                        <div class="form-group col-md-4">                            
+                            <label for="txtc_i_placabol"> Placa </label>
+                            <input type="text" class="form-control" id="txtc_i_placaescon" name = "txtc_i_placaescon" value = ""/>   
+                        </div>                            
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">                            
+                            <label for="txttipoestimulo"> Tipo de Estímulo o Condecoración </label>
+                            <input type="text"  class="form-control" id="txttipoestimulo" name = "txttipoestimulo" value = ""/>   
+                        </div>                            
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-10">                            
+                            <label for="txt"> Actividad </label>
+                            <textarea id ='txtmotivo' class="form-control" placeholder="Escriba aqui actividad realizada..."></textarea>
                         </div>
                     </div>
                     <div class="row col-10">
                         <div class="form-group">                                                       
-                            <input type = "button" id="btnGeneraInf" class="form-control btn btn-success" value="Mostrar" onclick =''>
+                            <input type = "button" id="btnGuardaEstimulo" class="form-control btn btn-success" value="Guardar" onclick ='UploadEstimulo();'>
                         </div>                        
                     </div>
                 </div>
-                <div class="container" id="reportepersonal">                    
-                </div>                
-            </div>            
+            </div>
             <!-- ****************************  -->
         </div>
     </body>
 </html>
-<% }  %>
+<% /* } */ %>
